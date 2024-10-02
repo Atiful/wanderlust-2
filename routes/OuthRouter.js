@@ -10,7 +10,7 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     // when deploying https://wanderlust-2-mutk.onrender.com in place of localhost
     // in localhost  http://localhost:3000/auth/google/callback
-    callbackURL: "http://wanderlust-2-mutk.onrender.com/auth/google/callback"
+    callbackURL: "http://localhost:3000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     user.findOrCreate(
