@@ -51,6 +51,18 @@ flex: 1;
     height : 34px;
     width : 34px;
 }
+.username-nav{
+  font-size: 0.7rem;
+  /* text-align: center; */
+  color :rgb(21, 7, 114);
+  font-weight: 700;
+}
+.user-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 /* footer */
 .footer{
@@ -444,5 +456,26 @@ flex: 1;
 
    }
    
+
+   /* index search */
+   .index-search{
+    display: none;
+    justify-content: center;
+    margin: 0 auto !important;
+    justify-content: center;
+   }
+   .search-button button{
+    margin: 0 !important;
+   }
+
+
+   @media(max-width : 768px) {
+       .index-search{
+        display: flex;
+       }
+       .search-item{
+        display: none;
+       }
+   }
 
    

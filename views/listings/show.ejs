@@ -11,21 +11,19 @@
         <p class="card-text"><%= listing.description%></p>
         <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN")%></p>
         <p class="card-text"><%= listing.location %>,<%= listing.country %></p>
-        
-        <% if (user && listing.owner.username == user.username) { %>
+       
         <div class="button my-3">
           <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">edit this listing</a>
           <form action="/listings/<%= listing._id %>?_method=DELETE" method = "post">
             <button class="btn btn-dark">Delete</button>
           </form>
         </div>
-        <% } %>
+  
       </div>
     </div>
     <hr style="border: 1px solid black;">
 
-    <!-- review section -->
-     <% if (user) { %>
+  
     <div class="reviews mt-3">
       <form method = "post" action = "/listings/<%= listing._id %>/reviews">
         <h3>Share your valuable comments</h3>
@@ -55,7 +53,6 @@
       </form>
   </div>
   </div>
-  <% } %>
 
   <!-- review show section -->
   <div class="review-show container-fluid mt-5">
