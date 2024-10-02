@@ -1,0 +1,173 @@
+ <% layout('/layouts/boilerplate') -%> 
+
+
+
+<body>
+  <div class="options mt-3 mb-4">
+    <div class="filters">
+      <a href="/filter/Trending">  
+      <div class="ms-4 trending categoryForm">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+      </div>
+    </a>
+
+      <a href="/filter/Castles">
+      <div class="castels categoryForm">
+        <i class="fa-solid fa-chess-rook"></i>
+        <p>Castels</p>
+      </div>
+      </a>
+
+      <a href="/filter/Treehouse">  
+      <div class="treehouse categoryForm">
+        <i class="fa-solid fa-tree"></i>
+        <p>Treehouse</p>
+      </div>
+    </a>
+
+    <a href="/filter/TopCities">  
+      <div class="TopCities categoryForm" >
+        <i class="fa-solid fa-city"></i>
+        <p>Top cities</p>
+      </div>
+    </a>
+
+      <a href="/filter/Mountains">  
+      <div class="Mountains categoryForm">
+        <i class="fa-solid fa-mountain-city"></i>
+        <p>Mountains</p>
+      </div>
+    </a>
+
+      <a href="/filter/Camping">  
+      <div class="Camping categoryForm">
+        <i class="fa-solid fa-campground"></i>
+        <p>Camping</p>
+      </div>
+    </a>
+
+      <a href="/filter/Artic">  
+      <div class="Artic categoryForm">
+      <i class="fa-solid fa-snowflake"></i>
+        <p>Artic</p>
+      </div>
+    </a>
+
+      <a href="/filter/Lake">  
+      <div class="lake categoryForm">
+      <i class="fa-solid fa-water"></i>
+        <p>Lake</p>
+      </div>
+    </a>
+
+      <a href="/filter/Beaches">  
+      <div class="Beaches categoryForm">
+        <i class="fa-solid fa-umbrella-beach"></i>
+          <p>Beaches</p>
+        </div>
+      </a>
+
+        <a href="/filter/lowToHigh">  
+        <div class="lowToHigh categoryForm">
+          <i class="fa-solid fa-tag"></i>
+            <p>low-high</p>
+          </div>
+        </a>
+
+
+          <a href="/filter/highToLow">  
+          <div class="highToLow categoryForm">
+            <i class="fa-solid fa-money-check-dollar"></i>
+              <p>high-low</p>
+            </div>
+          </a>
+
+            <a href="/filter/Cottages">  
+            <div class="Cottages categoryForm">
+              <i class="fa-solid fa-house"></i>
+                <p>Cottages</p>
+              </div>
+            </a>
+
+              <a href="/filter/Luxury">  
+              <div class="Luxury categoryForm">
+                <i class="fa-regular fa-credit-card"></i>
+                  <p>Luxury</p>
+                </div>
+              </a>
+
+                <a href="/filter/Nature">  
+                <div class="Nature categoryForm">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                    <p>nature</p>
+                  </div>
+                </a>
+
+                  <a href="/filter/Modern">  
+                  <div class="Modern categoryForm">
+                    <i class="fa-regular fa-clock"></i>
+                      <p>Modern</p>
+                    </div>
+                  </a>
+
+                    <a href="/filter/Historic">  
+                    <div class="Historics categoryForm">
+                      <i class="fa-brands fa-pied-piper-alt"></i>
+                        <p>Historics</p>
+                      </div>
+                    </a>
+
+        <div class="form-check-reverse form-switch tax-toggle">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <p>display with taxes</p>
+               </div>
+    </div> 
+    
+</div>
+
+    <div class="index container-fluid">
+    <% for(let listing of listings) { %>
+        <a href="/listings/<%= listing._id %>">
+        <div class="card mb-3">
+            <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text title"><%= listing.title %></p>
+              <p class="card-text description without-tax">&#8377;<%= listing.price.toLocaleString("en-IN")%>/night</p>
+              <p class="card-text with-tax">&#8377;<%= (listing.price * 0.18 + listing.price).toLocaleString("en-IN")%>/night <span class="gst">(GST inclusive)</span></p>
+            </div>
+          </div>
+        </a>
+    <% } %>
+</div>
+    
+</body>
+
+
+<script>
+  
+  
+  document.getElementById('flexSwitchCheckDefault').addEventListener('change', function() {
+    // Get all elements with the 'with-tax' and 'without-tax' classes
+    const withTaxElements = document.querySelectorAll('.with-tax');
+    const withoutTaxElements = document.querySelectorAll('.without-tax');
+    
+    if (this.checked) {
+      // If the toggle is ON, show tax-inclusive prices and hide tax-exclusive prices
+      withTaxElements.forEach(function(element) {
+        element.style.display = 'block';
+      });
+      withoutTaxElements.forEach(function(element) {
+        element.style.display = 'none';
+      });
+    } else {
+      // If the toggle is OFF, show tax-exclusive prices and hide tax-inclusive prices
+      withTaxElements.forEach(function(element) {
+        element.style.display = 'none';
+      });
+      withoutTaxElements.forEach(function(element) {
+        element.style.display = 'block';
+      });
+    }
+  });
+</script>

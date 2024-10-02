@@ -1,0 +1,23 @@
+
+<% if (sucess && sucess.length) { %>
+    <div class="flash-alert alert alert-success text-center" role="alert">
+        <%= sucess %>
+      </div>
+<% } %>
+
+<% if (error && error.length) { %>
+    <div class="flash-alert alert alert-danger text-center" role="alert">
+        <%= error %>
+      </div>
+<% } %>
+
+
+
+<!-- <script>
+     setTimeout(() => {
+        let alert = document.getElementsByClassName("flash-alert");
+        if(alert){
+        alert[0].style.display = 'none';
+        }
+     } , 4000);
+  </script>  -->

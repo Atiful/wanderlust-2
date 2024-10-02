@@ -1,0 +1,87 @@
+<% layout('/layouts/boilerplate') -%>
+
+
+<body>
+
+    <form action="/listings" method = "post" class="form" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label for="title">Title</label>
+             <input type="text" value = "random" class="form-control" id = "title" placeholder = "A catchy title" name = listing[title] required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="description">Description</label>
+            <textarea  class="form-control" name = listing[description] id="description" placeholder="enter description" required>good place</textarea>
+        </div>
+    
+        <div class="form-group mb-3">
+            <label for="url">Upload Image</label>
+           <input type="file" class="form-control" placeholder="enter url" name = "listing[image]" id = "url" required>
+        </div>
+             
+
+        <div class="row">
+            <div class="form-group mb-3 col-md-4">
+                <label for="number">Price</label>
+               <input type="number" value = "1200" class="form-control" placeholder="enter number" name = "listing[price]" id = "number" required>
+            </div>
+    
+            <div class="form-group mb-3 col-md-8">
+                <label for="location">Location</label>
+                <input type="text" value = "wb" class="form-control" placeholder="enter location" name = "listing[location]" id = "location" required>
+            </div>
+        </div>
+        
+         <div class="row">
+        <div class="form-group mb-3 col-md-4">
+            <label for="country">Country</label>
+            <input type="text" value = "india" class="form-control" placeholder="enter country" name = "listing[country]" id = "country" required>
+        </div>
+        
+        <div class="form-group mt-4 col-md-6">
+        <label for="categories">Choose a category:</label>
+        <select id="categories" name = "listing[categories]">
+            <option value="Trending" selected>Trending</option>
+            <option value="Castles">Castles</option>
+            <option value="Treehouse">Treehouse</option>
+            <option value="TopCities">Top Cities</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Camping">Camping</option>
+            <option value="Artic">Artic</option>
+            <option value="Lake">Lake</option>
+            <option value="Beaches">Beaches</option>
+            <option value="Luxury">Luxury</option>
+            <option value="Cottages">Cottages</option>
+            <option value="Eco-Friendly">Eco-Friendly</option>
+            <option value="Historic">Historic</option>
+            <option value="Nature">Nature</option>
+            <option value="Modern">Modern</option>
+        </select>
+    </div>
+        
+      </div>
+
+        <div class="button">
+        <button class="btn btn-success my-2" type = "submit">submit</button>
+       </div>
+
+
+
+
+
+
+      
+
+
+
+
+    </form>
+</body>
+
+
+<script>
+    // Initialize the Bootstrap Select
+    $(document).ready(function () {
+      $('.selectpicker').selectpicker();
+    });
+  </script>

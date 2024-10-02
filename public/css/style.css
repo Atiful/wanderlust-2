@@ -1,0 +1,448 @@
+
+p{
+    margin-bottom: 0px !important;
+}
+a{
+    text-decoration: none !important;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.boilerpate-body{
+flex: 1;
+}
+
+
+
+.navbar{
+    padding : 1rem 0 !important;
+}
+
+.nav-icon{
+    color : red;
+}
+
+.nav-item{
+    color : black;
+}
+
+.navbar .nav-link.active{
+  color : black !important;
+  font-weight: 500;
+}
+
+.navbar .authication-option{
+    display: flex;
+    gap : 15px;
+}
+
+
+.authication-option li{
+    list-style-type: none;
+}
+
+/* navbar profile pic */
+.profile-pic{
+    border-radius: 50%;
+    height : 34px;
+    width : 34px;
+}
+
+/* footer */
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(236, 236, 236);
+}
+.footer ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer ul li{
+    margin : 2px;
+
+}
+
+.footer p , .footer ul li{
+    cursor : pointer;
+}
+.footer ul{
+    margin-bottom: 2px;
+}
+.footer .social-media-links ul li{
+    margin-right : 20px;
+}
+.footer .social-media-links i{
+    transform: scale(1.3);
+    color: rgba(0, 0, 0, 0.829);
+}
+
+.footer .social-media-links i:hover{
+    transform: scale(1.5);
+    color: rgb(0, 0, 0);
+}
+
+.footer p , .footer li{
+    margin-bottom : 0;
+}
+.footer ul li{
+    list-style-type: none;
+}
+
+.name , .gmail{
+  font-size: 0.6rem;
+  text-align: center;
+}
+
+/* index page */
+.index{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap : 20px;
+}
+
+.index .card{
+    width : 240px;
+    border : none;
+    cursor: pointer;
+}
+
+.card-body{
+    padding : 0 !important;
+}
+
+.index .card img{
+    object-fit: cover;
+    border-radius: 15px;
+    height : 240px;
+}
+
+.index .card img:hover{
+    filter : brightness(70%);
+
+}
+
+.index .card-body .title{
+    font-weight: 500;
+    color: rgba(68, 27, 27, 0.944);
+}
+
+.index .card-body .description{
+    color: rgba(0, 0, 0, 0.816);
+}
+
+
+/* form */
+.form{
+    width : 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    filter: brightness(95%);
+}
+
+.form .form-group label{
+    font-weight: 500;
+    color: rgba(23, 20, 20, 0.816);
+}
+
+@media (max-width : 700px){
+    .form{
+        width: 90%;
+    }
+}
+
+/* edit  */
+.edit-heading{
+    color: rgb(55, 39, 39);
+}
+/* show card */
+.show{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.show .card{
+    border: none;
+    width : 50%;
+}
+
+.show .card img{
+    border-radius: 25px;
+    height : 300px;
+    object-fit: cover;
+}
+.show .card .card-text{
+    font-weight: 500;
+}
+
+.show .button{
+    display: flex;
+    gap : 20px;
+    justify-content: flex-start;
+}
+
+.show .card img:hover{
+  filter: grayscale(50%)
+}
+
+.show h3{
+    color: rgb(55, 39, 39);
+}
+.show{
+    cursor: pointer;
+}
+
+
+@media(max-width : 900px) and (min-width : 600px){
+    .show .card{
+        width: 80%;
+    }
+    .reviews{
+        width : 80% !important;
+    }
+}
+
+@media(max-width : 600px){
+    .show .card{
+        width: 95%;
+    }
+    .reviews{
+        width : 95% !important;
+    }
+}
+
+/* error */
+.alert-error{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.reviews{
+    width : 50%;
+}
+
+/* show review */
+.review-show{
+    display: flex;
+    flex-wrap: wrap;
+    gap : 15px;
+    justify-content: center;
+}
+.review-show .card{
+    width : 320px;
+    padding-left : 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 5px rgba(54, 212, 6, 0.1);
+    cursor: pointer;
+}
+
+.review-show .card:hover{
+    box-shadow: 4px 4px 10px black;
+}
+
+.review-show .card .card-head{
+ display: flex;
+ justify-content: space-between;
+}
+
+.card-head .date{
+    font-size: 0.7rem;
+    color : midnightblue
+}
+
+.card-text .filled-star{
+    color : rgb(56, 9, 5);
+}
+
+
+/* falsh alert */
+.flash-alert{
+    display: flex;
+    margin-left : 40px;
+    margin-right: 40px;
+    text-align: center;
+}
+
+
+/* user login auth google */
+.google-auth{
+    padding : 15px;
+}
+
+.google-auth a{
+    color : white;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+.google-auth i{
+    margin-right : 10px;
+}
+
+.google-auth a:hover{
+    text-decoration: none !important;
+    color : white;
+    color : rgb(244, 235, 235);
+}
+
+/* preview edit.ejs*/
+.preview {
+    background-color : white ;
+}
+.preview a{
+    color : black !important;
+}
+
+.preview:hover{
+    background-color: whitesmoke !important;
+}
+
+
+/* logine.ejs avatar */
+
+.Avatar{
+    display: flex !important;
+    gap : 10px;
+}
+
+
+
+.Avatar img{
+    height : 50px;
+    width : 50px;
+    border-radius: 50%;
+    border: 2px solid black;
+
+}
+
+ .Avatar-img{
+    border: 3px solid green;
+    box-shadow: 3px 3px 5px 5px green;
+}
+
+
+
+
+/* filter index.ejs */
+
+
+.options .filters{
+    display: flex;
+    gap : 30px;
+    overflow-x: auto;
+    padding-top : 8px;
+   }
+
+   .options .filters a{
+    display: block;
+   }
+
+.options .filters:hover{
+    cursor: pointer;
+} 
+
+
+
+.filters::-webkit-scrollbar {
+    height: 5px; /* Height of the scrollbar */
+  }
+
+  .filters::-webkit-scrollbar-thumb {
+    background: #2a0541; /* Color of the scrollbar */
+    border-radius: 4px;
+  }
+
+.filters i{
+    transform: scale(1.3);
+     color : rgba(0, 0, 0, 0.611);
+   }
+
+   .filters  div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
+   .filters div i:hover{
+      color : rgb(21, 7, 114);
+   }
+
+   .filters div:hover{
+    border: 1px solid rgba(0, 0, 0, 0.262);
+    color : rgb(47, 5, 5);
+   }
+
+   .filters div p{
+    color : rgba(0, 0, 0, 0.611);
+    font-size: 0.7rem;
+    margin-top : 5px;
+   }
+
+   .filters .categoryForm:active{
+     border: 1px solid rgba(0, 0, 0, 0.262);
+     padding : 1px;
+   }
+   .filters .categoryForm p:active{
+    color: black;
+    font-weight: 500;
+   }
+
+   .filters .categoryForm i:active{
+    color: black;
+   }
+
+
+   /* index style for price toggle  */
+   .with-tax{
+    display: none;
+   }
+   .gst{
+    font-size: 0.7rem;
+    color : rgb(203, 59, 7)
+   }
+
+   /* navbar search option */
+   .search .form-inline{
+    display: flex !important;
+    flex-wrap: wrap;
+    gap : 10px;
+   }
+   .search button{
+     background-color: rgba(255, 0, 0, 0.552);
+     color : white;
+     border-radius: 25px;
+     padding-left: 10px;
+     padding-right: 10px;
+   }
+   .search button:hover{
+    background-color: rgba(255, 0, 0, 0.527);
+    color : white;
+   }
+
+   .search .search-class{
+    border-radius: 25px;
+    padding-left: 20px;
+     padding-right: 20px;
+   }
+
+   @media(max-width : 745px){
+
+   }
+   
+
+   

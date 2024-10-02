@@ -1,0 +1,82 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    
+  <div class="show container-fluid">
+    <div class="card">
+      <h3 class="card-title my-3"><p><%= listing.title %></p></h3>
+
+      <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap">
+      <div class="card-body">
+        <p class="card-text mb-2" style="color : rgb(5, 143, 150)"><i>owned by @</i><%= listing.owner.username%></p>
+        <p class="card-text"><%= listing.description%></p>
+        <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN")%></p>
+        <p class="card-text"><%= listing.location %>,<%= listing.country %></p>
+        
+        <% if (user && listing.owner.username == user.username) { %>
+        <div class="button my-3">
+          <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">edit this listing</a>
+          <form action="/listings/<%= listing._id %>?_method=DELETE" method = "post">
+            <button class="btn btn-dark">Delete</button>
+          </form>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <hr style="border: 1px solid black;">
+
+    <!-- review section -->
+     <% if (user) { %>
+    <div class="reviews mt-3">
+      <form method = "post" action = "/listings/<%= listing._id %>/reviews">
+        <h3>Share your valuable comments</h3>
+        <div class="form-group mt-3">
+          <label for="comment">provide your expreience</label>
+          <textarea class="form-control" id="comment" name ="review[comment]" placeholder="share your thoughts" required></textarea>
+        </div>
+  
+        <div class="form-group">
+<fieldset class="starability-coinFlip">
+  <legend>Share Rating: </legend>
+  <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+  <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+  <label for="first-rate1" title="Terrible">1 star</label>
+  <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+  <label for="first-rate2" title="Not good">2 stars</label>
+  <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+  <label for="first-rate3" title="Average">3 stars</label>
+  <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+  <label for="first-rate4" title="Very good">4 stars</label>
+  <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+  <label for="first-rate5" title="Amazing">5 stars</label>
+</fieldset>
+</div>
+        
+        <button type="submit" class="btn btn-success mt-3">Submit</button>
+      </form>
+  </div>
+  </div>
+  <% } %>
+
+  <!-- review show section -->
+  <div class="review-show container-fluid mt-5">
+          <% for(review of listing.reviews) { %>
+            <div class="card mx-3 my-3">
+              <div class="card-body">
+                 <div class="card-head">
+                <h6 class="card-title">@<%= review.author.username %></h6>
+                <p class="date"><%= review.createdAt.toLocaleDateString() %></p>
+                </div>
+                <h3 class="card-text">
+                  <span class="filled-star"><%= "★".repeat(review.rating) %><%= "☆".repeat(5 - review.rating) %></span>
+              </h3>
+
+                <p class="card-text"><%= review.comment %></p>
+                <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method = "post">
+                <button type="submit" class="btn btn-outline-primary btn-sm my-3">Delete</button>
+              </form>
+              </div>
+            </div>
+              
+          <% } %>
+  </div>
+</body>

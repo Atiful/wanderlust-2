@@ -1,0 +1,85 @@
+
+<nav class="navbar navbar-expand-md bg-light border-bottom mb-3 sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="nav-icon fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/listings">Explore</a>
+          </li>
+
+          <li class="nav-item">
+          <div class = "search">
+            <form class="form-inline" method = "get" action = "/search">
+              <div class="search-input">
+              <input class="form-control search-class mr-sm-2" type="text" name = "search" placeholder="Search Destination" aria-label="Search">
+            </div>
+            <div class="search-button">
+              <button class="btn my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </div>
+            </form>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+         <div class="authication-option ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/listings/new">Add new Listings</a>
+          </li>
+          <% if (!user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">login</a>
+            </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" href="/signUp">Signup</a>
+            </li>
+            <% } %>
+            
+           <% if (user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">logout</a>
+            </li>
+           <% } %>
+
+
+           <% if (user) { %>
+            <li class="nav-item">
+              <img class = "profile-pic" src="<%= user.profilepic %>" alt="profileimg">
+            </li>
+                
+           <% } %>
+        </div>
+      </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <script>
+    const navItems = document.querySelectorAll(".navbar .nav-link");
+
+    // On page load, check which link matches the current URL
+navItems.forEach(item => {
+  if (item.href === window.location.href) {
+    item.classList.add('active');
+  }
+});
+
+     navItems.forEach(item => {
+        item.addEventListener("click" , () => {
+          // remove all the nav item class as activea
+          navItems.forEach(i => i.classList.remove('active'));
+          
+        // add class active to what was clicked
+          item.classList.add('active');
+        });
+     });
+
+  </script>

@@ -1,0 +1,68 @@
+<%- layout('layouts/boilerplate') %>
+
+<body>
+    <form class = "container-fluid row justify-content-center mt-1" method ="post" action = "/signup">
+         <div  class = "col-md-7 my-2">
+            <h2>Signup on WanderLust</h2>
+         </div>
+
+        <div class="form-group col-md-7 mt-2 mb-2">
+            <label for="username">Enter Username</label>
+            <input type="text" class="form-control" name = "username" id="username"  placeholder="enter username" required>
+          </div>
+
+        <div class="form-group col-md-7 mb-2">
+          <label for="Email">Email address</label>
+          <input type="email" class="form-control" name = "email" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        
+
+        <div class="form-group col-md-7">
+          <label for="Password">Password</label>
+          <input type="password" name = "password" class="form-control" id="Password" placeholder="Password" required>
+        </div>
+
+        
+
+        <div class="form-group Avatar col-md-7 mt-3">
+          <div><img src="/avatar/avatar-black-girls.png" alt=""></div>
+          <div><img src="/avatar/avatar-girls-white.png" alt=""></div>
+          <div><img class="Avatar-img" src="/avatar/avatar-men-child.jpg" alt=""></div>
+          <div><img src="/avatar/avatar-men-smile-beard.jpg" alt=""></div>
+          <div><img src="/avatar/avatar-men-smile.jpg" alt=""></div>
+          <input type = "hidden" class="selected-avator" type="text" name = "profilepic" value = "/avatar/avatar-men-child.jpg">
+        </div>
+      
+
+        <div class="col-md-7 mt-3">
+          <button class = "btn btn-danger google-auth"><a href="/auth/google"><i class="fa-brands fa-google"></i>Google</a></button>
+      </div>
+
+        <div class="col-md-7 mt-3">
+          <p>Already have an account? <a href="/login">Log in</a> here instead</p>
+        </div>
+
+        <div class="mt-3 text-center">
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+       </div>
+      </form>
+</body>
+
+
+<script>
+  let avatarImages = document.querySelectorAll(".Avatar img");
+  let selectedAvator = document.querySelector(".selected-avator");
+  avatarImages.forEach((img) => {
+
+    // add the classlist which is clicked
+     img.addEventListener("click" , () => {
+      // Remove the class from all images
+    avatarImages.forEach((Img) => Img.classList.remove("Avatar-img"));
+       img.classList.add("Avatar-img");
+       selectedAvator.value = img.src;
+     });
+  });
+  
+</script>
