@@ -8,7 +8,9 @@ const user = require("../models/user.js");
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/callback"
+    // when deploying https://wanderlust-2-mutk.onrender.com in place of localhost
+    // in localhost  http://localhost:3000/auth/google/callback
+    callbackURL: "http://wanderlust-2-mutk.onrender.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
     user.findOrCreate(
