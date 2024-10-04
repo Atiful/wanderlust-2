@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { review } = require('./review.js');
-const { required } = require('joi');
+const { required, boolean } = require('joi');
 const listingSchema = new mongoose.Schema({
     title : {
         type : String,

@@ -32,7 +32,6 @@ router.get('/callback',
 
       // Successful authentication, redirect home.
       let redirect =  res.locals.redirectedUrl || "/listings";
-      console.log(redirect);
       req.flash("sucess" , "welcome to wanderlust");
       res.redirect(redirect);
     });

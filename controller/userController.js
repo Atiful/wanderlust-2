@@ -1,4 +1,5 @@
 const user = require("../models/user.js");
+const expressError = require("../utils/expessError.js");
 
 module.exports.renderSignupForm = (req , res) => {
     res.render("users/signup.ejs");
@@ -52,6 +53,35 @@ module.exports.renderSignupForm = (req , res) => {
       }
     });
  };
+
+ module.exports.handleLikedListing = async (req , res) => {
+   let {liked} = req.body;
+   let {id} = req.params;
+   if(liked){
+      let user_details = await user.findById(req.user.id);
+      if(!user_details.likedListing.includes(id)){
+         user_details.likedListing.push(id);
+         let updated_value = await user.findByIdAndUpdate(req.user.id , {...user_details} , {new : true});
+      }
+   }
+   else{
+         let new_details = await user.findByIdAndUpdate(req.user.id , {$pull : {likedListing : id}} , {new : true});
+   }
+   res.json({ message: 'Data received successfully!'});
+  };
+
+
+
+  module.exports.seeAllLikesListing = async(req , res) => {
+   let users = await user.findById(req.user._id).populate("likedListing");
+   res.render("listings/index.ejs" , {listings : users.likedListing});
+};
+
+module.exports.deleteAllLikedlisting = async(req , res) => {
+   let updated_user = await user.findByIdAndUpdate(req.user._id , {likedListing : []} , {new : true});
+   req.flash("sucess" , "All saved Listings is removed");
+   res.redirect("/listings");
+};
 
 
 

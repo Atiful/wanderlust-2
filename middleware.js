@@ -7,7 +7,7 @@ const expressError = require("./utils/expessError.js");
 module.exports.isloginIn = (req , res , next) => {
     if(!req.isAuthenticated()){
       req.session.originalUrl = req.originalUrl;
-        req.flash("error" , "you must login to create a new Listing");
+        req.flash("error" , "you must login or signup to unlock all options");
         res.redirect("/login");
       }
       else{
@@ -16,11 +16,14 @@ module.exports.isloginIn = (req , res , next) => {
 }
 
 module.exports.saveredirectedUrl = (req , res , next) => {
-  // console.log(req.session.originalUrl);
 if(req.session.originalUrl){
   res.locals.redirectedUrl = req.session.originalUrl;
 }
-console.log( res.locals.redirectedUrl);
+
+// this is used to hnadle like url presnt in user.js and index.ejs
+if(req.session.originalUrl && req.session.originalUrl.includes('like')){
+    res.locals.redirectedUrl = "/listings";
+}
   next();
 };
 
@@ -62,3 +65,4 @@ module.exports.validatelisting = (req , res , next) => {
       next();
     }
   }
+

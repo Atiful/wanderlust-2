@@ -31,6 +31,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 
 
 app.use(express.urlencoded({extended : true}));
+app.use(express.json()); 
 app.use(methodOverride('_method'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
@@ -76,7 +77,6 @@ next();
 
 
 
-
 app.use("/listings" , listingsRouter);
 app.use("/listings/:id/reviews" , reviewsRouter);
 app.use("/filter", filterRouter);
@@ -97,15 +97,16 @@ main()
 });
 
 async function main() {
+  // process.env.mongo_atlas
+  // mongodb://127.0.0.1:27017/wanderlust-2
   await mongoose.connect(process.env.mongo_atlas);
 }
 
 
 
-
 // this is error handling
 app.all("*" , (req , res , next) => {
-  throw new expressError(500 , "page not found!");
+  throw new expressError(500 , "page not found! please visit the explore section");
 });
 
 

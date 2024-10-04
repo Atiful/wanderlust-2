@@ -5,7 +5,7 @@
     <div class="card">
       <h3 class="card-title my-3"><p><%= listing.title %></p></h3>
 
-      <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap">
+      <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap" loading="lazy">
       <div class="card-body">
         <p class="card-text mb-2" style="color : rgb(5, 143, 150)"><i>owned by @</i><%= listing.owner.username%></p>
         <p class="card-text"><%= listing.description%></p>

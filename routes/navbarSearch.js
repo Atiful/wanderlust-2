@@ -25,6 +25,9 @@ router.get("/" , wrapAsync(async (req , res) => {
 
 
      let finalListings  = [...new Set([...ByDes, ...ByLocation, ...Bycountry, ...ByTitle])];
+     if(finalListings.length == 0){
+        res.redirect("/listings");
+     }
     res.render("listings/index.ejs" , {listings : finalListings});
    
 }));

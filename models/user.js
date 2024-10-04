@@ -13,7 +13,13 @@ const userSchema = new mongoose.Schema({
   },
   profilepic : {
     type : String,
-  }
+  },
+  likedListing : [
+    {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "listing"
+    }
+  ]
 });
 
 userSchema.plugin(passportLocalMongoose);

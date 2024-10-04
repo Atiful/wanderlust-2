@@ -26,6 +26,7 @@ const userSchema = joi.object({
        profilepic : joi.string(),
        email: joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required()
+
 }).required()
 
 module.exports = {
