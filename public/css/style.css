@@ -144,7 +144,6 @@ flex: 1;
 
 }
 
-.options
 
 .index .card-body .title{
     font-weight: 500;
@@ -393,10 +392,9 @@ flex: 1;
     gap : 20px;
     align-items: center;
 }
-.search-item
+
 .options .filters{
     display: flex;
-    flex-wrap: nowrap !important;
     gap : 30px;
     overflow-x: auto;
     padding-top : 8px;
@@ -519,5 +517,3 @@ flex: 1;
         display: none;
        }
    }
-
-   
