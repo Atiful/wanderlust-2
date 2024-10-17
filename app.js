@@ -99,7 +99,7 @@ main()
 async function main() {
   // process.env.mongo_atlas
   // mongodb://127.0.0.1:27017/wanderlust-2
-  await mongoose.connect(process.env.mongo_atlas);
+  await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust-2");
 }
 
 
