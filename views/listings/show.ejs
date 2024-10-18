@@ -1,7 +1,15 @@
 <% layout('/layouts/boilerplate') -%>
 <body>
+
+    <!-- loader -->
+<div class="d-flex justify-content-center" id="loader">
+  <div class="spinner-grow text-danger" role="status" style="transform: scale(2);">
+  </div>
+</div>
     
-  <div class="show container-fluid">
+  <div class="show container-fluid" style="display: none;">
+
+  
     <div class="card">
       <h3 class="card-title my-3"><p><%= listing.title %></p></h3>
 
@@ -55,7 +63,7 @@
   </div>
 
   <!-- review show section -->
-  <div class="review-show container-fluid mt-5">
+  <div class="review-show container-fluid mt-5" style="display: none;">
           <% for(review of listing.reviews) { %>
             <div class="card mx-3 my-3">
               <div class="card-body">
@@ -77,3 +85,19 @@
           <% } %>
   </div>
 </body>
+
+<script>
+
+  window.addEventListener("load" , () => {
+  let loader = document.querySelector("#loader");
+  let show = document.querySelector(".show");
+  let showReview = document.querySelector(".review-show");
+  if(loader && show && showReview){
+    loader.style.visibility = "hidden";
+  show.style.display = "flex";
+  showReview.style.display = "flex"
+  }
+});
+
+
+</script>
