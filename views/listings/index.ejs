@@ -140,8 +140,13 @@
     </div>
 </div>
 
+<!-- loader -->
+<div class="d-flex justify-content-center" id="loader">
+  <div class="spinner-grow text-danger" role="status" style="transform: scale(2);">
+  </div>
+</div>
 
-    <div class="index container-fluid">
+    <div class="index container-fluid" style="display: none;">
     <% for(let listing of listings) { %>
         <a href="/listings/<%= listing._id %>">
          
@@ -238,7 +243,16 @@
 });
 
 
+// adding loader script
+window.addEventListener("load" , () => {
+  let loader = document.querySelector("#loader");
+  let index = document.querySelector(".index");
+  if(loader && index){
+    loader.style.visibility = "hidden";
+  index.style.display = "flex";
+  }
 
+});
 
 
 
