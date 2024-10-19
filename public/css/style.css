@@ -474,7 +474,9 @@ flex: 1;
    /* navbar search option */
    .search .form-inline{
     display: flex !important;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     gap : 10px;
    }
    .search button{
@@ -488,6 +490,16 @@ flex: 1;
     background-color: rgba(255, 0, 0, 0.527);
     color : white;
    }
+
+   @media (max-width : 400px){
+    .form-inline button{
+        font-size: 0.7rem;
+    }
+    .search-button i{
+        display: none;
+    }
+   }
+
 
    .search .search-class{
     border-radius: 25px;
