@@ -26,6 +26,15 @@
       </div>
     </a>
 
+    <a href="/likes">  
+      <div class="likes categoryForm">
+        <i class="fa-solid fa-heart"></i>
+        <p>Likes</p>
+      </div>
+    </a>
+
+
+
       <a href="/filter/Castles">
       <div class="castels categoryForm">
         <i class="fa-solid fa-chess-rook"></i>
@@ -39,6 +48,22 @@
         <p>Treehouse</p>
       </div>
     </a>
+
+    <a href="/filter/highToLow">  
+      <div class="highToLow categoryForm">
+        <i class="fa-solid fa-tag"></i>
+        <p>high-low</p>
+      </div>
+    </a>
+
+    <a href="/filter/lowToHigh">  
+      <div class="lowToHigh categoryForm">
+        <i class="fa-solid fa-tag"></i>
+        <p>low-high</p>
+      </div>
+    </a>
+
+
 
     <a href="/filter/TopCities">  
       <div class="TopCities categoryForm" >
@@ -123,35 +148,17 @@
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <p>display with taxes</p>
                </div>
+
     </div> 
-
-    <div class="btn-group">
-      <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="fs-6">Filter | Likes</span>
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="/filter/highToLow">high to low</a>
-        <a class="dropdown-item" href="/filter/lowToHigh">low to High</a>
-        <a class="dropdown-item" href="/likes"> liked Listings</a> 
-        <a class="dropdown-item" href="/deletelikes">Remove All liked Listing</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="/listings">All Listings</a>
-      </div>
-    </div>
 </div>
 
-<!-- loader -->
-<div class="d-flex justify-content-center" id="loader">
-  <div class="spinner-grow text-danger" role="status" style="transform: scale(2);">
-  </div>
-</div>
 
-    <div class="index container-fluid" style="display: none;">
+    <div class="index container-fluid">
     <% for(let listing of listings) { %>
         <a href="/listings/<%= listing._id %>">
          
-        <div class="card mb-3 blur-img" data-listing-id = "<%= listing._id %>">
-            <img class="card-img-top" src="<%= listing.image.url %>&h=240" alt="Card image cap" loading="lazy">
+        <div class="card mb-3" data-listing-id = "<%= listing._id %>">
+            <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap" loading="lazy">
         
             <div class="card-img-overlay heart-index">
             
@@ -241,19 +248,6 @@
       }
   });
 });
-
-
-// adding loader script
-window.addEventListener("load" , () => {
-  let loader = document.querySelector("#loader");
-  let index = document.querySelector(".index");
-  if(loader && index){
-    loader.style.visibility = "hidden";
-  index.style.display = "flex";
-  }
-
-});
-
 
 
 </script>

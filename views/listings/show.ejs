@@ -1,19 +1,13 @@
 <% layout('/layouts/boilerplate') -%>
 <body>
-
-    <!-- loader -->
-<div class="d-flex justify-content-center" id="loader">
-  <div class="spinner-grow text-danger" role="status" style="transform: scale(2);">
-  </div>
-</div>
     
-  <div class="show container-fluid" style="display: none;">
+  <div class="show container-fluid">
 
   
     <div class="card">
       <h3 class="card-title my-3"><p><%= listing.title %></p></h3>
 
-      <img class="card-img-top" src="<%= listing.image.url %>&h=300" alt="Card image cap" loading="lazy">
+      <img class="card-img-top" src="<%= listing.image.url %>" alt="Card image cap" loading="lazy">
       <div class="card-body">
         <p class="card-text mb-2" style="color : rgb(5, 143, 150)"><i>owned by @</i><%= listing.owner.username%></p>
         <p class="card-text"><%= listing.description%></p>
@@ -63,7 +57,7 @@
   </div>
 
   <!-- review show section -->
-  <div class="review-show container-fluid mt-5" style="display: none;">
+  <div class="review-show container-fluid mt-5">
           <% for(review of listing.reviews) { %>
             <div class="card mx-3 my-3">
               <div class="card-body">
@@ -88,16 +82,7 @@
 
 <script>
 
-  window.addEventListener("load" , () => {
-  let loader = document.querySelector("#loader");
-  let show = document.querySelector(".show");
-  let showReview = document.querySelector(".review-show");
-  if(loader && show && showReview){
-    loader.style.visibility = "hidden";
-  show.style.display = "flex";
-  showReview.style.display = "flex"
-  }
-});
+ 
 
 
 </script>
